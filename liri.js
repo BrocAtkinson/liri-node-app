@@ -1,14 +1,16 @@
 require("dotenv").config();;
 require("./keys.js")
 var axios = require('axios');
-
+const omdb = "http://www.omdbapi.com/?t=";
+const spotify = require("node-spotify-api");
 
 axios.all([
   axios.get('http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy'),
   axios.get('https://api.spotify.com')
-]).then(axios.spread((response1, response2) => {
-  console.log(spotify.data.url);
-  console.log(omdb.data.url);
+]).then(axios.spread((omdb, spotify) => {
+  console.log(spotify, "epmd")
+  console.log(omdb, "sandlot");
+
 })).catch(error => {
   console.log(error);
 });
